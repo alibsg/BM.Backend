@@ -17,7 +17,7 @@ namespace BM.BackEnd.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class UsersController: ControllerBase
+    public class UsersController: Controller
     {
         private IUserService _userService;
         private IMapper _mapper;
@@ -29,6 +29,10 @@ namespace BM.BackEnd.Controllers
             _mapper = mapper;
             _appSettings = appSettings.Value;
 
+        }
+
+        public UsersController()
+        {
         }
 
         [AllowAnonymous]
