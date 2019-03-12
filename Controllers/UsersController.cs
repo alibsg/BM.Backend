@@ -1,9 +1,6 @@
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using AutoMapper;
-using BM.BackEnd.DTOs;
-using BM.BackEnd.Helpers;
-using BM.BackEnd.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -11,19 +8,26 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using BM.BackEnd.Models.Entities;
+using BM.BackEnd.DTOs;
+using BM.BackEnd.Helpers;
+using BM.BackEnd.Services;
 
 namespace BM.BackEnd.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class UsersController: Controller
+    public class UsersController: ControllerBase
     {
         private IUserService _userService;
         private IMapper _mapper;
         private readonly AppSettings _appSettings;
 
-        public UsersController(IUserService userService, IMapper mapper ,IOptions<AppSettings> appSettings)
+        public UsersController(
+            IUserService userService,
+             IMapper mapper ,
+             IOptions<AppSettings> appSettings
+             )
         {
             _userService = userService;
             _mapper = mapper;
@@ -31,10 +35,11 @@ namespace BM.BackEnd.Controllers
 
         }
 
-        public UsersController()
-        {
+        [AllowAnonymous]
+        [HttpGet("/")]
+        IActionResult test([FromBody]UserDTO userDTO){
+            return(Ok(new { test = 1}));
         }
-
         [AllowAnonymous]
         [HttpPost("authenticate")]
         IActionResult Authenticate([FromBody]UserDTO userDTO)
