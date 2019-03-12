@@ -8,7 +8,9 @@ namespace BM.BackEnd.DTOs{
         public string Email { get; set; }
         public string Education { get; set; }
         public int MaritalStatus { get; set; }
+        public int Age { get; set; }
         public string UserName { get; set; }
-        public string Password { get; set; }        
+        public string Password { get; set; }
+        public string Token { get; set; }
     }
 }

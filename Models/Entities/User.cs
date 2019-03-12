@@ -1,4 +1,9 @@
 namespace BM.BackEnd.Models.Entities{
+    public class Role
+    {
+        public const string Admin = "Admin";
+        public const string User = "User";
+    }
     public class User{
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -7,7 +12,9 @@ namespace BM.BackEnd.Models.Entities{
         public string Email { get; set; }
         public string Education { get; set; }
         public int MaritalStatus { get; set; }
+        public int Age { get; set; }
         public string UserName { get; set; }
+        public Role Role { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
     }
