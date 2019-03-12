@@ -4,7 +4,6 @@ D:\Training\Ali\NetCore\BM.BackEnd\bin\Debug\netcoreapp2.2\BM.BackEnd.runtimecon
 d:\Training\Ali\NetCore\BM.BackEnd\bin\Debug\netcoreapp2.2\BM.BackEnd.dll
 d:\Training\Ali\NetCore\BM.BackEnd\bin\Debug\netcoreapp2.2\BM.BackEnd.pdb
 D:\Training\Ali\NetCore\BM.BackEnd\bin\Debug\netcoreapp2.2\BM.BackEnd.Views.dll
-d:\Training\Ali\NetCore\BM.BackEnd\bin\Debug\netcoreapp2.2\BM.BackEnd.Views.pdb
 d:\Training\Ali\NetCore\BM.BackEnd\obj\Debug\netcoreapp2.2\BM.BackEnd.csprojAssemblyReference.cache
 d:\Training\Ali\NetCore\BM.BackEnd\obj\Debug\netcoreapp2.2\BM.BackEnd.csproj.CoreCompileInputs.cache
 d:\Training\Ali\NetCore\BM.BackEnd\obj\Debug\netcoreapp2.2\BM.BackEnd.RazorAssemblyInfo.cache
