@@ -42,7 +42,7 @@ namespace BM.BackEnd.Controllers
         }
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate([FromBody]UserDTO userDTO)
+        public  IActionResult Authenticate([FromBody]UserDTO userDTO)
         {
             var user = ((UserService)_userService).AuthenticateByUserNameAndPassword(userDTO.UserName, userDTO.Password);
             if(user == null){
