@@ -36,8 +36,8 @@ namespace BM.BackEnd.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("/")]
-        IActionResult test([FromBody]UserDTO userDTO){
+        [HttpGet("test")]
+        public IActionResult test(){
             return(Ok(new { test = 1}));
         }
         [AllowAnonymous]
