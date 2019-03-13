@@ -38,11 +38,11 @@ namespace BM.BackEnd.Controllers
         [AllowAnonymous]
         [HttpGet("test")]
         public IActionResult test(){
-            return(Ok(new { test = 1}));
+            return(Ok(new { message = "Test"}));
         }
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        IActionResult Authenticate([FromBody]UserDTO userDTO)
+        public IActionResult Authenticate([FromBody]UserDTO userDTO)
         {
             var user = ((UserService)_userService).AuthenticateByUserNameAndPassword(userDTO.UserName, userDTO.Password);
             if(user == null){
