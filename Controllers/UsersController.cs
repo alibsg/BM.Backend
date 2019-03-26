@@ -32,7 +32,6 @@ namespace BM.BackEnd.Controllers
             _userService = userService;
             _mapper = mapper;
             _appSettings = appSettings.Value;
-
         }
 
         [AllowAnonymous]
@@ -44,7 +43,13 @@ namespace BM.BackEnd.Controllers
         [HttpPost("authenticate")]
         public  IActionResult Authenticate([FromBody]UserDTO userDTO)
         {
-            var user = ((UserService)_userService).AuthenticateByUserNameAndPassword(userDTO.UserName, userDTO.Password);
+            User user = null;
+            if(string.IsNullOrEmpty(userDTO.UserName)){
+                user = ((UserService)_userService).AuthenticateByPhoneNumberAndPassword(userDTO.MobileNumber, userDTO.Password);                
+            }
+            else{
+                user = ((UserService)_userService).AuthenticateByUserNameAndPassword(userDTO.UserName, userDTO.Password);
+            }
             if(user == null){
                 return BadRequest(new { message = "Invalid useranme or password" });
             }

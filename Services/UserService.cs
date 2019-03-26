@@ -44,7 +44,6 @@ namespace BM.BackEnd.Services{
             }
 
             return Authenticate(user,password);
-
         }
 
         public User Create(User user, string password)
