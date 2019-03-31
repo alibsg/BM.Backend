@@ -13,6 +13,7 @@ namespace BM.BackEnd.Models.Entities{
         public string Education { get; set; }
         public int MaritalStatus { get; set; }
         public int Age { get; set; }
+        public int Sex { get; set; }
         public string UserName { get; set; }
         public string Role { get; set; }
         public byte[] PasswordHash { get; set; }
