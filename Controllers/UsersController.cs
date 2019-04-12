@@ -11,6 +11,7 @@ using BM.BackEnd.Models.Entities;
 using BM.BackEnd.DTOs;
 using BM.BackEnd.Helpers;
 using BM.BackEnd.Services;
+using System.Collections.Generic;
 
 namespace BM.BackEnd.Controllers
 {
@@ -86,7 +87,13 @@ namespace BM.BackEnd.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
-        
+
+        [HttpGet]
+        public IActionResult getAll(){
+            var users = _userService.getAll();
+            var usersDTO = _mapper.Map<IList<UserDTO>>(users);
+            return Ok(usersDTO);
+        }
 
     }  
 }
