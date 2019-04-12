@@ -75,14 +75,15 @@ namespace BM.BackEnd.Controllers
         [HttpPost("register")]
         public IActionResult Register([FromBody] UserDTO userDTO)
         {
-            var user = _mapper.Map<User>(userDTO);
-            try{
-                _userService.Create(user,userDTO.Password);
+            try
+            {
+                var user = _mapper.Map<User>(userDTO);
+                _userService.Create(user, userDTO.Password);
                 return Ok();
             }
-            catch(AppException ex)
+            catch (AppException ex)
             {
-                return BadRequest(new { message = ex.Message});
+                return BadRequest(new { message = ex.Message });
             }
         }
         

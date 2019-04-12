@@ -1,4 +1,6 @@
-﻿using System;
+﻿#define  USE_MYSQL
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -33,11 +35,15 @@ namespace BM.BackEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
+#if (USE_MYSQL)
+            var connection = "server=localhost;database=appdb;user=appuser;password=28571mandel";
+            services.AddDbContext<UserContext>(options => options.UseMySql(connection));
+#else
             var connection = "Server=EIT-EDU\\SQL11C;Database=EITFrameworkPracticeDB_V8.26_A.Baseghi;Trusted_Connection=True;";
             services.AddDbContext<UserContext>(options => options.UseSqlServer(connection));
+#endif
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddAutoMapper();
-            
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
             // configure jwt authentication

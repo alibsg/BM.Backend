@@ -1,4 +1,6 @@
 
+using System;
+
 namespace BM.BackEnd.DTOs{
     public class UserDTO{
         public int Id { get; set; }
@@ -8,7 +10,7 @@ namespace BM.BackEnd.DTOs{
         public string Email { get; set; }
         public string Education { get; set; }
         public int MaritalStatus { get; set; }
-        public int Age { get; set; }
+        public DateTime BDate { get; set; }
         public int Sex { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
